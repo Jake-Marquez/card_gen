@@ -478,3 +478,76 @@ function updateTestCard() {
 
 // Event listener for update button
 updateTestCardBtn.addEventListener('click', updateTestCard);
+
+// Download elfs folder as zip
+const downloadElfsBtn = document.getElementById('download-elfs-btn');
+if (downloadElfsBtn) {
+    downloadElfsBtn.addEventListener('click', async function() {
+        try {
+            downloadElfsBtn.textContent = 'Downloading...';
+            downloadElfsBtn.disabled = true;
+
+            const zip = new JSZip();
+            const elfsFolder = zip.folder('elfs');
+
+            // List of files in the elfs folder
+            const elfsFiles = [
+                'elfs.csv',
+                '00010-2446747513.png',
+                '00049-1470756094.png',
+                '00050-1789069772.png',
+                '00051-2631949519.png',
+                '00052-3663192815.png',
+                '00057-301796533.png',
+                '00062-2606519977.png',
+                '00065-1790782103.png',
+                '00077-2857751192.png',
+                '00089-2681880704.png',
+                '00097-2681880704.png',
+                '00107-2681880705.png',
+                '00117-2681880704.png',
+                '00123-2681880704.png',
+                '00130-2681880704.png',
+                '00133-2681880704.png',
+                '00135-2681880704.png',
+                '00137-2681880704.png',
+                '00138-2681880704.png',
+                '00142-2681880704.png',
+                '00143-2681880704.png',
+                '00144-2681880704.png',
+                '00145-2681880704.png'
+            ];
+
+            // Fetch and add each file to the zip
+            for (const fileName of elfsFiles) {
+                try {
+                    const response = await fetch(`./elfs/${fileName}`);
+                    if (response.ok) {
+                        const blob = await response.blob();
+                        elfsFolder.file(fileName, blob);
+                        console.log(`Added ${fileName} to zip`);
+                    }
+                } catch (error) {
+                    console.log(`Could not add ${fileName}:`, error);
+                }
+            }
+
+            // Generate and download the zip
+            const content = await zip.generateAsync({ type: 'blob' });
+            const url = URL.createObjectURL(content);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'elfs-example.zip';
+            a.click();
+            URL.revokeObjectURL(url);
+
+            downloadElfsBtn.textContent = 'Download Sample CSV + Photos';
+            downloadElfsBtn.disabled = false;
+        } catch (error) {
+            console.error('Error creating zip:', error);
+            alert('Error creating zip file. Please check the console for details.');
+            downloadElfsBtn.textContent = 'Download Sample CSV + Photos';
+            downloadElfsBtn.disabled = false;
+        }
+    });
+}

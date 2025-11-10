@@ -20,7 +20,7 @@
                     <p>CSV should contain columns: name, troopCost, manaCost, playableOn, type, cardText, flavorText, power, toughness, range, image, artist</p>
                     <p>Example: Elf Warrior,1,1,"ocean,forest,plains,mountain",Creature - Elf,This is a cool elf!,"A warrior of the forest",1,1,,elf.png,JPeezy Mcsqueezy</p>
                     <p>Note: playableOn and range are mutually exclusive - use playableOn for spells, range for creatures</p>
-                    <a href="./sample2.csv" download class="download-sample-btn">Download Sample CSV</a>
+                    <button id="download-elfs-btn" class="download-sample-btn" style="border: none; cursor: pointer; margin-top: 10px;">Download Sample CSV + Photos</button>
                 </label>
                 <input type="file" id="csv-upload" accept=".csv" />
                 <div id="csv-status" class="status"></div>
@@ -128,6 +128,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script type="module" src="/app.js"></script>
 </body>
 </html>

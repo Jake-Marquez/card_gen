@@ -38,6 +38,22 @@ export default defineConfig({
           copyFileSync(sampleCsv, join('dist', sampleCsv));
           console.log('Copied sample2.csv');
         }
+
+        // Copy elfs folder to dist
+        const elfsSource = 'elfs';
+        const elfsDest = join('dist', 'elfs');
+
+        if (existsSync(elfsSource)) {
+          if (!existsSync(elfsDest)) {
+            mkdirSync(elfsDest, { recursive: true });
+          }
+
+          const elfsFiles = readdirSync(elfsSource);
+          elfsFiles.forEach(file => {
+            copyFileSync(join(elfsSource, file), join(elfsDest, file));
+            console.log(`Copied elfs file: ${file}`);
+          });
+        }
       }
     }
   ]
