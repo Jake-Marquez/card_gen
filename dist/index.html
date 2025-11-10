@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Card Generator</title>
-  <script type="module" crossorigin src="./assets/index-BUb6eWWq.js"></script>
+  <script type="module" crossorigin src="./assets/index-CMWNEeTm.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-BkHj9bKu.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
                     <p>CSV should contain columns: name, troopCost, manaCost, playableOn, type, cardText, flavorText, power, toughness, range, image, artist</p>
                     <p>Example: Elf Warrior,1,1,"ocean,forest,plains,mountain",Creature - Elf,This is a cool elf!,"A warrior of the forest",1,1,,elf.png,JPeezy Mcsqueezy</p>
                     <p>Note: playableOn and range are mutually exclusive - use playableOn for spells, range for creatures</p>
-                    <a href="./sample2.csv" download class="download-sample-btn">Download Sample CSV</a>
+                    <button id="download-elfs-btn" class="download-sample-btn" style="border: none; cursor: pointer; margin-top: 10px;">Download Sample CSV + Photos</button>
                 </label>
                 <input type="file" id="csv-upload" accept=".csv" />
                 <div id="csv-status" class="status"></div>
@@ -129,5 +129,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </body>
 </html>

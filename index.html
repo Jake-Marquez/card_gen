@@ -18,8 +18,7 @@
                 <label for="csv-upload">
                     <h3>1. Upload CSV File</h3>
                     <p>CSV should contain columns: name, troopCost, manaCost, playableOn, type, cardText, flavorText, power, toughness, range, image, artist</p>
-                    <p>Example: Elf Warrior,1,1,"ocean,forest,plains,mountain",Creature - Elf,This is a cool elf!,"A warrior of the forest",1,1,,elf.png,JPeezy Mcsqueezy</p>
-                    <p>Note: playableOn and range are mutually exclusive - use playableOn for spells, range for creatures</p>
+                    <p>Download the Sample CSV + Photos, or try the test card designer below.</p>
                     <button id="download-elfs-btn" class="download-sample-btn" style="border: none; cursor: pointer; margin-top: 10px;">Download Sample CSV + Photos</button>
                 </label>
                 <input type="file" id="csv-upload" accept=".csv" />
@@ -29,7 +28,7 @@
             <div class="upload-group">
                 <label for="image-upload">
                     <h3>2. Upload Card Artwork</h3>
-                    <p>Upload card artwork images referenced in your CSV (icons are loaded automatically from /icons folder)</p>
+                    <p>Upload card artwork images referenced in your CSV</p>
                 </label>
                 <input type="file" id="image-upload" accept="image/*" multiple />
                 <div id="image-status" class="status"></div>
