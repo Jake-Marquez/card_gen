@@ -28,7 +28,8 @@ async function preloadIcons() {
         'desert.png',
         'tundra.png',
         'jungle.png',
-        'wasteland.png'
+        'wasteland.png',
+        'chaos.png'
     ];
 
     const promises = iconNames.map(async (iconName) => {

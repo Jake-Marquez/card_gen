@@ -14,7 +14,7 @@ export default defineConfig({
   },
   plugins: [
     {
-      name: 'copy-icons',
+      name: 'copy-assets',
       closeBundle() {
         // Copy icons folder to dist
         const iconsSource = 'icons';
@@ -30,6 +30,13 @@ export default defineConfig({
             copyFileSync(join(iconsSource, file), join(iconsDest, file));
             console.log(`Copied icon: ${file}`);
           });
+        }
+
+        // Copy sample2.csv to dist
+        const sampleCsv = 'sample2.csv';
+        if (existsSync(sampleCsv)) {
+          copyFileSync(sampleCsv, join('dist', sampleCsv));
+          console.log('Copied sample2.csv');
         }
       }
     }

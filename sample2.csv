@@ -1,2 +1,2 @@
 name,troopCost,manaCost,playableOn,type,cardText,power,toughness,image,artist
-Spear Elf,1,1,"forest,plains,mountain",Creature - Elf,This is a cool elf.,1,1,forest.png,AI
+Spear Elf,1,1,"forest,plains,mountain,ocean",Creature - Elf,This is a cool elf.,1,1,forest.png,AI
