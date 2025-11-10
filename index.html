@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Playing Card Generator</h1>
+            <p>Create printable card templates for your custom card game</p>
+        </header>
+
+        <div class="upload-section">
+            <div class="upload-group">
+                <label for="csv-upload">
+                    <h3>1. Upload CSV File</h3>
+                    <p>CSV should contain columns: name, troopCost, manaCost, playableOn, type, cardText, power, toughness, image, artist</p>
+                </label>
+                <input type="file" id="csv-upload" accept=".csv" />
+                <div id="csv-status" class="status"></div>
+            </div>
+
+            <div class="upload-group">
+                <label for="image-upload">
+                    <h3>2. Upload Card Artwork</h3>
+                    <p>Upload card artwork images referenced in your CSV (icons are loaded automatically from /icons folder)</p>
+                </label>
+                <input type="file" id="image-upload" accept="image/*" multiple />
+                <div id="image-status" class="status"></div>
+            </div>
+
+            <div class="upload-group">
+                <button id="generate-btn" disabled>Generate PDF</button>
+                <button id="preview-btn" disabled>Preview Cards</button>
+            </div>
+        </div>
+
+        <div id="preview-section" class="preview-section" style="display: none;">
+            <h3>Card Preview</h3>
+            <div id="card-preview"></div>
+        </div>
+
+        <div class="test-card-section">
+            <h3>Test Card Designer</h3>
+            <p>Design a single card for testing without uploading a CSV</p>
+
+            <div class="test-card-container">
+                <div class="test-card-form">
+                    <div class="form-row">
+                        <label>Card Name:</label>
+                        <input type="text" id="test-name" placeholder="Enter card name" value="Test Card">
+                    </div>
+
+                    <div class="form-row">
+                        <label>Troop Cost:</label>
+                        <input type="number" id="test-troopCost" placeholder="0" min="0">
+                    </div>
+
+                    <div class="form-row">
+                        <label>Mana Cost:</label>
+                        <input type="number" id="test-manaCost" placeholder="0" min="0">
+                    </div>
+
+                    <div class="form-row">
+                        <label>Playable On:</label>
+                        <input type="text" id="test-playableOn" placeholder="forest,plains,mountain">
+                    </div>
+
+                    <div class="form-row">
+                        <label>Type:</label>
+                        <input type="text" id="test-type" placeholder="Creature - Dragon">
+                    </div>
+
+                    <div class="form-row">
+                        <label>Card Text:</label>
+                        <textarea id="test-cardText" rows="3" placeholder="Enter card abilities and rules text"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <label>Power:</label>
+                        <input type="number" id="test-power" placeholder="0" min="0">
+                    </div>
+
+                    <div class="form-row">
+                        <label>Toughness:</label>
+                        <input type="number" id="test-toughness" placeholder="0" min="0">
+                    </div>
+
+                    <div class="form-row">
+                        <label>Card Image:</label>
+                        <input type="file" id="test-image" accept="image/*">
+                    </div>
+
+                    <div class="form-row">
+                        <label>Artist:</label>
+                        <input type="text" id="test-artist" placeholder="Artist name">
+                    </div>
+
+                    <button id="update-test-card-btn" class="update-btn">Update Preview</button>
+                </div>
+
+                <div class="test-card-preview">
+                    <h4>Live Preview</h4>
+                    <div id="test-card-display"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="print-area" style="display: none;"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script type="module" src="/app.js"></script>
+</body>
+</html>

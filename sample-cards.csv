@@ -1,0 +1,11 @@
+name,manaCost,type,cardText,power,toughness,image,artist
+Lightning Bolt,1R,Instant,Deal 3 damage to any target.,,,forest.png,John Doe
+Ancient Dragon,4GG,Creature - Dragon,Flying. When Ancient Dragon enters the battlefield draw a card.,5,5,forest.png,Jane Smith
+Counterspell,UU,Instant,Counter target spell.,,,forest.png,Bob Wilson
+Healing Touch,2W,Sorcery,Target player gains 5 life.,,,forest.png,Sarah Lee
+Dark Ritual,B,Instant,Add three black mana to your mana pool.,,,forest.png,Mike Chen
+Forest Guardian,3G,Creature - Elemental,Reach. Trample.,4,4,forest.png,Emma Davis
+Fireball,XR,Sorcery,Fireball deals X damage to any target.,,,forest.png,Tom Anderson
+Mind Reader,2U,Creature - Wizard,When Mind Reader enters draw two cards then discard a card.,2,3,forest.png,Lisa Brown
+Sword of Power,3,Artifact - Equipment,Equipped creature gets +3/+0. Equip 2,,,forest.png,David Martinez
+Divine Shield,1W,Enchantment - Aura,Enchanted creature has protection from black and red.,,,forest.png,Anna Johnson

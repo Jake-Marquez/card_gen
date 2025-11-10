@@ -1,0 +1,11 @@
+name,troopCost,manaCost,playableOn,type,cardText,power,toughness,image,artist
+Lightning Bolt,1,2,mountain,Instant,Deal 3 damage to any target.,,,bolt.jpg,John Doe
+Ancient Dragon,5,4,mountain,Creature - Dragon,Flying. When Ancient Dragon enters the battlefield draw a card.,5,5,dragon.jpg,Jane Smith
+Counterspell,0,3,ocean,Instant,Counter target spell.,,,counter.jpg,Bob Wilson
+Healing Touch,1,2,plains,Sorcery,Target player gains 5 life.,,,healing.jpg,Sarah Lee
+Dark Ritual,0,1,swamp,Instant,Add three mana to your mana pool.,,,ritual.jpg,Mike Chen
+Forest Guardian,3,3,forest,Creature - Elemental,Reach. Trample.,4,4,guardian.jpg,Emma Davis
+Fireball,2,3,mountain,Sorcery,Fireball deals X damage to any target.,,,fireball.jpg,Tom Anderson
+Mind Reader,1,2,ocean,Creature - Wizard,When Mind Reader enters draw two cards then discard a card.,2,3,wizard.jpg,Lisa Brown
+Sword of Power,2,0,plains,Artifact - Equipment,Equipped creature gets +3/+0. Equip 2,,,sword.jpg,David Martinez
+Divine Shield,1,1,ocean,plains,Enchantment - Aura,Enchanted creature has protection from black and red.,,,shield.jpg,Anna Johnson
