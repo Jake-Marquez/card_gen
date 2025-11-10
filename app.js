@@ -19,6 +19,7 @@ async function preloadIcons() {
     const iconNames = [
         'troops.png',
         'mana.png',
+        'range.png',
         'forest.png',
         'plains.png',
         'mountain.png',
@@ -157,6 +158,11 @@ function createCardElement(card) {
     const cardDiv = document.createElement('div');
     cardDiv.className = 'card';
 
+    // Add troop class if type starts with "Troop"
+    if (card.type && card.type.trim().toLowerCase().startsWith('troop')) {
+        cardDiv.classList.add('card-troop');
+    }
+
     // Card header with name, troop cost, and mana cost
     const header = document.createElement('div');
     header.className = 'card-header';
@@ -243,7 +249,7 @@ function createCardElement(card) {
         type.textContent = card.type;
         typeContainer.appendChild(type);
 
-        // Add playableOn icons
+        // Add playableOn icons or range (mutually exclusive)
         if (card.playableOn) {
             const playableOnContainer = document.createElement('div');
             playableOnContainer.className = 'playable-on-icons';
@@ -261,6 +267,26 @@ function createCardElement(card) {
             });
 
             typeContainer.appendChild(playableOnContainer);
+        } else if (card.range) {
+            // Range display (for creatures)
+            const rangeContainer = document.createElement('div');
+            rangeContainer.className = 'playable-on-icons';
+
+            const rangeIcon = document.createElement('img');
+            const rangeIconSrc = getIconImage('range.png') || getIconImage('range');
+            if (rangeIconSrc) {
+                rangeIcon.src = rangeIconSrc;
+                rangeIcon.className = 'terrain-icon';
+                rangeIcon.alt = 'Range';
+                rangeContainer.appendChild(rangeIcon);
+            }
+
+            const rangeValue = document.createElement('span');
+            rangeValue.textContent = card.range;
+            rangeValue.className = 'range-value';
+            rangeContainer.appendChild(rangeValue);
+
+            typeContainer.appendChild(rangeContainer);
         }
 
         cardDiv.appendChild(typeContainer);
@@ -269,7 +295,24 @@ function createCardElement(card) {
     // Card text box
     const textBox = document.createElement('div');
     textBox.className = 'card-text-box';
-    textBox.textContent = card.cardText || '';
+
+    // Main card text
+    if (card.cardText) {
+        const mainText = document.createElement('div');
+        mainText.className = 'card-main-text';
+        // Use innerHTML to support HTML formatting like <i>, <b>, <strong>, <em>, etc.
+        mainText.innerHTML = card.cardText;
+        textBox.appendChild(mainText);
+    }
+
+    // Flavor text (italic and bottom-aligned)
+    if (card.flavorText) {
+        const flavorText = document.createElement('div');
+        flavorText.className = 'card-flavor-text';
+        flavorText.innerHTML = card.flavorText;
+        textBox.appendChild(flavorText);
+    }
+
     cardDiv.appendChild(textBox);
 
     // Card footer
@@ -414,8 +457,10 @@ function updateTestCard() {
         playableOn: document.getElementById('test-playableOn').value,
         type: document.getElementById('test-type').value,
         cardText: document.getElementById('test-cardText').value,
+        flavorText: document.getElementById('test-flavorText').value,
         power: document.getElementById('test-power').value,
         toughness: document.getElementById('test-toughness').value,
+        range: document.getElementById('test-range').value,
         artist: document.getElementById('test-artist').value,
         image: 'test-image' // Placeholder
     };

@@ -1,0 +1,26 @@
+name,troopCost,manaCost,playableOn,type,cardText,flavorText,power,toughness,range,image,artist
+Gelweed Farmer,,1,"plains,forest,chaos",Troop 1 - Farmer,,"<i>From every furrow, the forest reaps its quiet bounty.</i>",0,1,,00049-1470756094.png,AI
+Goat Rancher,,1,"plains,forest,mountain,chaos",Troop 1 - Rancher,,<i>Even beasts of burden bow to the will of the green.</i>,0,1,,00050-1789069772.png,AI
+Horse Farier,,1,"plains,forest,mountain,chaos",Troop 1 - Farier,This card creates an extra Troop point for every two adjacent Plains tiles.,,0,1,,00051-2631949519.png,AI
+Gelweed Miller,,1,"plains,forest,mountain,chaos",Troop 0 - Miller,Gelweed Miller produces a Troop point for each Gelweed Farmer you control.,,0,1,,00052-3663192815.png,AI
+Arcane Smith,,1,"plains,forest,mountain",Troop 1 - Smith,,<i>Each strike a hymn to the earth's burning heart.</i>,0,1,,00057-301796533.png,AI
+Merchant,,1,"ocean,plains,forest,mountain",Troop 1 - Merchant,,"<i>Gold is but a reflection of trust, minted by faith.</i>",0,1,,00062-2606519977.png,AI
+Shipwright,,1,ocean,Troop 1 - Shipwright,Troops with an Ocean tile adjacent to them have +0/+1.,,0,1,,00065-1790782103.png,AI
+Treehouse Builder,,1,"plains,forest,mountain",Troop 1 - Builder,,<i>Whispers of the old woods echo through their deeds.</i>,0,1,,00077-2857751192.png,AI
+Gelweed Farmer,,1,"plains,forest,chaos",Troop 1 - Farmer,,"<i>From every furrow, the forest reaps its quiet bounty.</i>",0,1,,00049-1470756094.png,AI
+Spear Woman,1,1,,Creature - Elf,,Her spear moves like sunlight through branches.,2,1,1,00089-2681880704.png,AI
+Leaf Sniper,2,1,,Creature - Elf,Damage to Troops is doubled.,,2,3,2,00107-2681880705.png,AI
+Dark Assassin,2,2,,Creature - Elf,,A silent blade leaves no trace.,4,1,1,00117-2681880704.png,AI
+Forest Hunter,3,3,,Creature - Elf,"If you control at least 3 forest Land cards, <i>Forest Hunter</i> cannot be targeted by enemy spells or abilities.",,3,3,1,00142-2681880704.png,AI
+Spirit Mage,4,3,,Creature - Elf Mage,"Every time <i>Spirit Mage</i> does damage to a creature or player, draw a card.",,4,2,1,00143-2681880704.png,AI
+Spell-Blade,5,4,,Creature - Elf,"If you control an <i>Arcane Smith</i>, add a +1/+1 to <i>Spell-Blade</i>. If you control an <i>Elf Mage</i>, add a +1/+1 to <i>Spell-Blade</i>.",,5,5,1,00144-2681880704.png,AI
+Artificer,4,2,,Creature - Elf Mage,"When <i>Artificer</i> comes into play, give target creature you control +3/+3 if you control an <i>Arcane Smith</i>.",,1,1,1,00145-2681880704.png,AI
+Spear Woman,1,1,,Creature - Elf,,Her spear moves like sunlight through branches.,2,1,1,00089-2681880704.png,AI
+Spear Woman,1,1,,Creature - Elf,,Her spear moves like sunlight through branches.,2,1,1,00089-2681880704.png,AI
+World Tree,,4,,Event - Permanent,<i>World Tree</i> must be played on a Forest Land tile you control. Forest lands you control cannot turn chaotic.,,,,,00133-2681880704.png,AI
+Endless Thicket,,,,Event - Instant,"Until the start of your next turn, creatures you control attacking a Forest Tile get +1/+1. Lose 1 health.",,,,,00135-2681880704.png,AI
+Shooting Star,,,,Event - Instant,Destroy target permanent event. Lose 2 health.,,,,,00137-2681880704.png,AI
+Spirit Festival,3,2,,Event,"At the beginning of your next turn, double the troop points you would otherwise generate, then destroy this card.",,,,,00138-2681880704.png,AI
+Bountiful Harvest,2,2,,Event,Choose a <i>Gelweed Farmer</i> you control. The farmer and all adjacent Troops you control get +0/+1.,,,,,00123-2681880704.png,AI
+Flash Flood,,3,,Event - Instant,"Attach <i>Flash Flood</i> to any Land tile. The owner of the tile must move any troop off of it as they normally would. If they can't, destroy the Toop. Destroy <i>Flash Flood</i> and lose 1 health.",,,,,00010-2446747513.png,AI
+Blessing,3,1,,Event,Regain 1 health point.,,,,,00130-2681880704.png,AI

@@ -241,6 +241,11 @@ button:disabled {
     flex-direction: column;
 }
 
+/* Troop card background */
+.card-troop {
+    background: linear-gradient(135deg, #d4f4d4 0%, #b8e8b8 100%);
+}
+
 .card-header {
     display: flex;
     justify-content: space-between;
@@ -348,6 +353,12 @@ button:disabled {
     border-radius: 3px;
 }
 
+.range-value {
+    font-weight: bold;
+    font-size: 11px;
+    margin-left: 2px;
+}
+
 .card-text-box {
     background: rgba(255,255,255,0.9);
     border: 1px solid #000;
@@ -357,6 +368,20 @@ button:disabled {
     line-height: 1.3;
     flex-grow: 1;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-main-text {
+    margin-bottom: 4px;
+}
+
+.card-flavor-text {
+    font-style: italic;
+    margin-top: auto;
+    padding-top: 4px;
+    border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 .card-footer {
