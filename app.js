@@ -31,26 +31,37 @@ async function preloadIcons() {
         'wasteland.png'
     ];
 
-    for (const iconName of iconNames) {
+    const promises = iconNames.map(async (iconName) => {
         try {
             const response = await fetch(`/icons/${iconName}`);
             if (response.ok) {
                 const blob = await response.blob();
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    iconMap[iconName] = e.target.result;
-                    console.log('Preloaded icon:', iconName);
-                };
-                reader.readAsDataURL(blob);
+                return new Promise((resolve) => {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        iconMap[iconName] = e.target.result;
+                        console.log('Preloaded icon:', iconName);
+                        resolve();
+                    };
+                    reader.readAsDataURL(blob);
+                });
             }
         } catch (error) {
             console.log(`Icon ${iconName} not found in /icons/ folder`);
         }
-    }
+    });
+
+    await Promise.all(promises);
+    console.log('All icons loaded:', Object.keys(iconMap));
 }
 
-// Load icons on page load
-preloadIcons();
+// Load icons on page load and initialize test card after
+preloadIcons().then(() => {
+    // Initialize test card after icons are loaded
+    if (document.getElementById('test-card-display')) {
+        updateTestCard();
+    }
+});
 
 // Event listeners
 csvUpload.addEventListener('change', handleCSVUpload);
@@ -419,8 +430,3 @@ function updateTestCard() {
 
 // Event listener for update button
 updateTestCardBtn.addEventListener('click', updateTestCard);
-
-// Initialize with a default card on page load
-setTimeout(() => {
-    updateTestCard();
-}, 500); // Wait for icons to load
