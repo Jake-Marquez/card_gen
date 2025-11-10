@@ -33,7 +33,7 @@ async function preloadIcons() {
 
     const promises = iconNames.map(async (iconName) => {
         try {
-            const response = await fetch(`/icons/${iconName}`);
+            const response = await fetch(`./icons/${iconName}`);
             if (response.ok) {
                 const blob = await response.blob();
                 return new Promise((resolve) => {
@@ -45,9 +45,11 @@ async function preloadIcons() {
                     };
                     reader.readAsDataURL(blob);
                 });
+            } else {
+                console.log(`Icon ${iconName} failed to load: ${response.status}`);
             }
         } catch (error) {
-            console.log(`Icon ${iconName} not found in /icons/ folder`);
+            console.log(`Icon ${iconName} not found:`, error.message);
         }
     });
 
