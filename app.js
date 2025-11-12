@@ -163,6 +163,11 @@ function createCardElement(card) {
         cardDiv.classList.add('card-troop');
     }
 
+    // Add event class if type starts with "Event"
+    if (card.type && card.type.trim().toLowerCase().startsWith('event')) {
+        cardDiv.classList.add('card-event');
+    }
+
     // Card header with name, troop cost, and mana cost
     const header = document.createElement('div');
     header.className = 'card-header';

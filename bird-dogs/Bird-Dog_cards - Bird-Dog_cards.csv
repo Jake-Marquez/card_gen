@@ -1,0 +1,26 @@
+name,troopCost,manaCost,playableOn,type,cardText,flavorText,power,toughness,range,image,artist
+Sanza Gatherer,,1,"plains,forest,mountain,chaos",Troop 1 - Gatherer,"Every turn, move <i>Sanza Gatherer</i> if you can. This does not cost Troop points.",,0,2,,Gemini_Generated_Image_ohrnxohrnxohrnxo (7).png,AI
+Sanza Gatherer,,1,"plains,forest,mountain,chaos",Troop 1 - Gatherer,"Every turn, move <i>Sanza Gatherer</i> if you can. This does not cost Troop points.",,0,2,,Gemini_Generated_Image_ohrnxohrnxohrnxo (7).png,AI
+Llama Herder,,1,"plains,forest,mountain",Troop 1 - Rancher,,,0,1,,Gemini_Generated_Image_ohrnxohrnxohrnxo (6).png,AI
+Oxen Saddler,,1,"plains,forest,mountain",Troop 1 - Farier,,,0,1,,Gemini_Generated_Image_ohrnxohrnxohrnxo (5).png,AI
+Rabbit Hunter,,1,"plains,forest,mountain,chaos",Troop 1 - Hunter,"Every turn, move <i>Rabbit Hunter</i> if you can. This does not cost Troop points.",,0,2,,Gemini_Generated_Image_ohrnxohrnxohrnxo (4).png,AI
+Deer Hunter,,1,"plains,forest,mountain,chaos",Troop 1 - Hunter,"Every turn, move <i>Deer Hunter</i> if you can. This does not cost Troop points.",,0,2,,Gemini_Generated_Image_ohrnxohrnxohrnxo (3).png,AI
+Wild Tanner,,1,"plains,forest,mountain",Troop 1 - Smith,,,0,1,,Gemini_Generated_Image_ohrnxohrnxohrnxo (2).png,AI
+Bead Trader,,1,"ocean,plains,forest,mountain",Troop 1 - Merchant,"Every turn, move <i>Bead Trader</i> if you can. This does not cost Troop points.",,0,1,,Gemini_Generated_Image_ohrnxohrnxohrnxo (1).png,AI
+Bag Weaver,,1,"ocean,plains,forest,mountain",Troop 1 - Merchant,"Every turn, move <i>Bag Weaver</i> if you can. This does not cost Troop points.",,0,1,,Gemini_Generated_Image_ohrnxohrnxohrnxo.png,AI
+Acolyte,1,1,,Creature - Bird-Dog,,,1,1,1,Gemini_Generated_Image_y8wkj6y8wkj6y8wk.png,AI
+Acolyte,1,1,,Creature - Bird-Dog,,,1,1,1,Gemini_Generated_Image_y8wkj6y8wkj6y8wk.png,AI
+Spell Sniper,2,1,,Creature - Bird-Dog Mage,,,1,1,2,Gemini_Generated_Image_avwbvkavwbvkavwb.png,AI
+Spell Sniper,2,1,,Creature - Bird-Dog Mage,,,1,1,2,Gemini_Generated_Image_avwbvkavwbvkavwb.png,AI
+Doom Warlock,3,2,,Creature - Bird-Dog Mage,"When you play <i>Doom Warlock</i>, return target creature to it's owners hand.",,2,2,2,Gemini_Generated_Image_n7ltkgn7ltkgn7lt.png,AI
+Blurred Talon,3,2,,Creature - Bird-Dog,"<b>First Strike</b> (If this creature is attacking or defending, and both inolved would die, <i>Blurred Talon</i> survives instead.)",,2,2,2,Gemini_Generated_Image_rh8w75rh8w75rh8w.png,AI
+Canine Mentalist,3,2,,Creature - Bird-Dog,<b>Intimidate</b> (Creatures with less power than <i>Canine Mentalist</i> can't block it.),,2,2,2,Gemini_Generated_Image_76aw9q76aw9q76aw.png,AI
+Storm Caller,3,2,,Creature - Bird-Dog Mage,,,3,3,2,Gemini_Generated_Image_1ox7w11ox7w11ox7.png,AI
+The Enlightened,4,4,,Creature - Bird-Dog Mage,"When <i>The Enlightened</i> attacks a Land tile, Troops on the tile are returned to their owners hand, regardless if a creature defended it.",,3,3,3,Gemini_Generated_Image_hf41ryhf41ryhf41.png,AI
+Greener Pastures,,,,Event - Instant,Double the Mana points you generate until the start of your next turn. Lose 1 health.,,,,,Gemini_Generated_Image_v6y0cqv6y0cqv6y0.png,AI
+Rallying Speech,,,,Event - Instant,Double the Troop points you generate until the start of your next turn. Lose 1 health.,,,,,Gemini_Generated_Image_uhhbsruhhbsruhhb.png,AI
+Supply Lines,3,2,,Event - Permanent,Troops of type <i>Merchant</i> within 1 tile distance of a <i>Hunter</i> or <i>Gatherer</i> produce an extra Troop point.,,,,,Gemini_Generated_Image_vzi653vzi653vzi6.png,AI
+Terrain Flip,3,1,,Event - Permanent,Change a target unowned Land tile to any other Land tile.,,,,,Gemini_Generated_Image_mgph3hmgph3hmgph.png,AI
+Avian Training,1,3,,Event,"Add a permanent +1/+0 counter to a Troop you own. They can attack with 1 range. For every additional 2 Troop points you pay, add an additional counter.",,,,,Gemini_Generated_Image_zh3fwzzh3fwzzh3f.png,AI
+Cyclone Staff,2,3,,Event - Permanent,"Target attached creature gets +1/+1. If they are a Bird-Dog mage, they get an additional +1/+1.",,,,,Gemini_Generated_Image_ri0a8pri0a8pri0a.png,AI
+Winged Retreat,1,2,,Event - Instant,Prevent all damage to troops until the beginning of your next turn. Lose 1 health.,,,,,Gemini_Generated_Image_ri0a8pri0a8pri0a (1).png,AI

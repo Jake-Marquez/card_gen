@@ -275,6 +275,11 @@ button:disabled {
     background: linear-gradient(135deg, #d4f4d4 0%, #b8e8b8 100%);
 }
 
+/* Event card background */
+.card-event {
+    background: linear-gradient(135deg, #f4d4d4 0%, #e8b8b8 100%);
+}
+
 .card-header {
     display: flex;
     justify-content: space-between;
