@@ -369,14 +369,12 @@ button:disabled {
 .card-type {
     font-size: 11px;
     font-weight: bold;
-    border-left: 3px solid #000;
-    padding-left: 6px;
     flex: 1;
 }
 
 .playable-on-icons {
     display: flex;
-    gap: 4px;
+    gap: 6px;
     align-items: center;
 }
 

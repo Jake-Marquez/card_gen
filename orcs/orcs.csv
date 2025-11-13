@@ -14,11 +14,11 @@ Heavy Archer,1,2,,Creature - Orc,,"Bows aren't for finesse, they're for punching
 Gruff Assassin,3,2,,Creature - Orc,"If <i>Gruff Assassin</i> kills a creature on your turn, at the end of your turn increase it's toughness by 1 to a maximum to 2.",,4,1,1,00118-2681880704.png,AI
 Savage Cannibal,1,1,,Creature - Demon,"Whenever a creature you control dies, add a +0/+1 counter to <i>Savage Cannibal</i> unless it would exceed 5 toughness. ",,1,1,1,00159-2681880704.png,AI
 General Oorvis,5,4,,Creature - Orc,<i>General Oorvis</i> cannot be blocked by creatures.,,2,2,1,00161-2681880704.png,AI
-Bonecrusher,3,3,,Creature - Orc,"Once per turn, you mac sacrifice a creature to add a +1/+1 counter to <i>Bonecrusher</i>.",,2,2,1,00174-2681880704.png,AI
+Bonecrusher,3,3,,Creature - Orc,"Once per turn, you may sacrifice a creature to add a +1/+1 counter to <i>Bonecrusher</i>.",,2,2,1,00174-2681880704.png,AI
 Witch Doctor,4,2,,Creature - Orc,"Once per turn, you can pay 4 Troop points and 2 Mana points to return a creature from your graveyard to your hand.",,2,2,1,00179-2681880705.png,AI
 Brutal Spearman,1,1,,Creature - Orc,,"His reach is long, but his patience is short.",2,2,1,00090-2681880704.png,AI
-Plague,2,1,,Event - Permanent,"<i>Plague</i> must be played on an enemy Land card. Troops of type <i>Farmer</i>, <i>Rancher</i>, and <i>Miller</i> produce no Troop points.",,,,,00129-2681880704.png,AI
-Precious Jewels,1,1,,Event - Permanent,"<i>Ore Vein</i> must be played on a Mountain Land card. Attached Land card generated double Mana points per turn, and cannot be Chaotic.",,,,,00127-2681880704.png,AI
+Plague,2,1,,Event - Permanent,"<i>Plague</i> must be played on an enemy Land Tile. Troops of type <i>Farmer</i>, <i>Rancher</i>, and <i>Miller</i> on attached Land Tile produce no Troop points.",,,,,00129-2681880704.png,AI
+Precious Jewels,1,1,,Event - Permanent,"<i>Ore Vein</i> must be played on a Mountain Land Tile. Attached Land Tile generated double Mana points per turn, and cannot be Chaotic.",,,,,00127-2681880704.png,AI
 Training Ground,2,2,,Event - Permanent,"<i>Training Ground</i> must be played on a Land card you control. While you control this Land, all creatures cost 1 less Troop point to cast.",,,,,00147-2681880704.png,AI
 War Machine,4,4,,Event - Permanent,<i>War Machine</i> must be played on an enemy Land card. Creatures or Troops defending this land take 1 direct damage. The owner of <i>War Machine</i> can pay its casting cost to return it to their hand from the field.,,,,,00152-2681880704.png,AI
 Blood Frenzy,3,1,,Event - Permanent,"While <i>Blood Frenzy</i> is under your control, creatures you attack with get a +1/+0 until end of turn. Creatures you defend with get -0/-1 till the start of your next turn. You can destroy <i>Blood Frenzy</i> by sacrificing a creature on your turn.",,,,,00154-2681880704.png,AI

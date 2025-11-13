@@ -1,21 +1,21 @@
 name,troopCost,manaCost,playableOn,type,cardText,flavorText,power,toughness,range,image,artist
 Sanza Gatherer,,1,"plains,forest,mountain,chaos",Troop 1 - Gatherer,"Every turn, move <i>Sanza Gatherer</i> if you can. This does not cost Troop points.",,0,2,,Gemini_Generated_Image_ohrnxohrnxohrnxo (7).png,AI
 Sanza Gatherer,,1,"plains,forest,mountain,chaos",Troop 1 - Gatherer,"Every turn, move <i>Sanza Gatherer</i> if you can. This does not cost Troop points.",,0,2,,Gemini_Generated_Image_ohrnxohrnxohrnxo (7).png,AI
-Llama Herder,,1,"plains,forest,mountain",Troop 1 - Rancher,,,0,1,,Gemini_Generated_Image_ohrnxohrnxohrnxo (6).png,AI
-Oxen Saddler,,1,"plains,forest,mountain",Troop 1 - Farier,,,0,1,,Gemini_Generated_Image_ohrnxohrnxohrnxo (5).png,AI
+Llama Herder,,1,"plains,forest,mountain",Troop 1 - Rancher,,"Even the stubborn find grace in the wind, if the hand that guides them knows the rhythm of the earth.",0,1,,Gemini_Generated_Image_ohrnxohrnxohrnxo (6).png,AI
+Oxen Saddler,,1,"plains,forest,mountain",Troop 1 - Farier,,"Strength is nothing without direction. The Saddlers teach muscle to follow motion, and motion to obey purpose.",0,1,,Gemini_Generated_Image_ohrnxohrnxohrnxo (5).png,AI
 Rabbit Hunter,,1,"plains,forest,mountain,chaos",Troop 1 - Hunter,"Every turn, move <i>Rabbit Hunter</i> if you can. This does not cost Troop points.",,0,2,,Gemini_Generated_Image_ohrnxohrnxohrnxo (4).png,AI
 Deer Hunter,,1,"plains,forest,mountain,chaos",Troop 1 - Hunter,"Every turn, move <i>Deer Hunter</i> if you can. This does not cost Troop points.",,0,2,,Gemini_Generated_Image_ohrnxohrnxohrnxo (3).png,AI
-Wild Tanner,,1,"plains,forest,mountain",Troop 1 - Smith,,,0,1,,Gemini_Generated_Image_ohrnxohrnxohrnxo (2).png,AI
+Wild Tanner,,1,"plains,forest,mountain",Troop 1 - Smith,,"From hide and sinew we craft not vanity, but memory. The wind remembers every hunt.",0,1,,Gemini_Generated_Image_ohrnxohrnxohrnxo (2).png,AI
 Bead Trader,,1,"ocean,plains,forest,mountain",Troop 1 - Merchant,"Every turn, move <i>Bead Trader</i> if you can. This does not cost Troop points.",,0,1,,Gemini_Generated_Image_ohrnxohrnxohrnxo (1).png,AI
 Bag Weaver,,1,"ocean,plains,forest,mountain",Troop 1 - Merchant,"Every turn, move <i>Bag Weaver</i> if you can. This does not cost Troop points.",,0,1,,Gemini_Generated_Image_ohrnxohrnxohrnxo.png,AI
-Acolyte,1,1,,Creature - Bird-Dog,,,1,1,1,Gemini_Generated_Image_y8wkj6y8wkj6y8wk.png,AI
-Acolyte,1,1,,Creature - Bird-Dog,,,1,1,1,Gemini_Generated_Image_y8wkj6y8wkj6y8wk.png,AI
-Spell Sniper,2,1,,Creature - Bird-Dog Mage,,,1,1,2,Gemini_Generated_Image_avwbvkavwbvkavwb.png,AI
-Spell Sniper,2,1,,Creature - Bird-Dog Mage,,,1,1,2,Gemini_Generated_Image_avwbvkavwbvkavwb.png,AI
+Acolyte,1,1,,Creature - Bird-Dog,,To listen to the Whisperwind is to learn that silence speaks louder than thunder.,1,1,1,Gemini_Generated_Image_y8wkj6y8wkj6y8wk.png,AI
+Acolyte,1,1,,Creature - Bird-Dog,,To listen to the Whisperwind is to learn that silence speaks louder than thunder.,1,1,1,Gemini_Generated_Image_y8wkj6y8wkj6y8wk.png,AI
+Spell Sniper,2,1,,Creature - Bird-Dog Mage,,"She breathes once, feels the current, and looses not an arrow-but a promise carried on the wind.",1,1,2,Gemini_Generated_Image_avwbvkavwbvkavwb.png,AI
+Spell Sniper,2,1,,Creature - Bird-Dog Mage,,"She breathes once, feels the current, and looses not an arrow-but a promise carried on the wind.",1,1,2,Gemini_Generated_Image_avwbvkavwbvkavwb.png,AI
 Doom Warlock,3,2,,Creature - Bird-Dog Mage,"When you play <i>Doom Warlock</i>, return target creature to it's owners hand.",,2,2,2,Gemini_Generated_Image_n7ltkgn7ltkgn7lt.png,AI
 Blurred Talon,3,2,,Creature - Bird-Dog,"<b>First Strike</b> (If this creature is attacking or defending, and both inolved would die, <i>Blurred Talon</i> survives instead.)",,2,2,2,Gemini_Generated_Image_rh8w75rh8w75rh8w.png,AI
 Canine Mentalist,3,2,,Creature - Bird-Dog,<b>Intimidate</b> (Creatures with less power than <i>Canine Mentalist</i> can't block it.),,2,2,2,Gemini_Generated_Image_76aw9q76aw9q76aw.png,AI
-Storm Caller,3,2,,Creature - Bird-Dog Mage,,,3,3,2,Gemini_Generated_Image_1ox7w11ox7w11ox7.png,AI
+Storm Caller,3,2,,Creature - Bird-Dog Mage,,"When an Aarakyn cries to the heavens, even the clouds dare not ignore the sound.",3,3,2,Gemini_Generated_Image_1ox7w11ox7w11ox7.png,AI
 The Enlightened,4,4,,Creature - Bird-Dog Mage,"When <i>The Enlightened</i> attacks a Land tile, Troops on the tile are returned to their owners hand, regardless if a creature defended it.",,3,3,3,Gemini_Generated_Image_hf41ryhf41ryhf41.png,AI
 Greener Pastures,,,,Event - Instant,Double the Mana points you generate until the start of your next turn. Lose 1 health.,,,,,Gemini_Generated_Image_v6y0cqv6y0cqv6y0.png,AI
 Rallying Speech,,,,Event - Instant,Double the Troop points you generate until the start of your next turn. Lose 1 health.,,,,,Gemini_Generated_Image_uhhbsruhhbsruhhb.png,AI

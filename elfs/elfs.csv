@@ -22,5 +22,5 @@ Endless Thicket,,,,Event - Instant,"Until the start of your next turn, creatures
 Shooting Star,,,,Event - Instant,Destroy target permanent event. Lose 2 health.,,,,,00137-2681880704.png,AI
 Spirit Festival,3,2,,Event,"At the beginning of your next turn, double the troop points you would otherwise generate, then destroy this card.",,,,,00138-2681880704.png,AI
 Bountiful Harvest,2,2,,Event - Permanent,Choose a <i>Gelweed Farmer</i> you control. The farmer and all adjacent Troops you control get +0/+2.,,,,,00123-2681880704.png,AI
-Flash Flood,,3,,Event - Instant,"Attach <i>Flash Flood</i> to any Land tile. The owner of the tile must move any troop off of it as they normally would. If they can't, destroy the Toop. Destroy <i>Flash Flood</i> and lose 1 health.",,,,,00010-2446747513.png,AI
+Flash Flood,,3,,Event - Instant,"Attach <i>Flash Flood</i> to any Land tile. The owner of the tile must move any troop off of it as they normally would. If they can't, destroy the Troop, then destroy <i>Flash Flood</i> and lose 1 health.",,,,,00010-2446747513.png,AI
 Blessing,3,1,,Event,Regain 1 health point.,,,,,00130-2681880704.png,AI
