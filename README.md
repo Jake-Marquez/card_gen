@@ -4,20 +4,55 @@ A web-based tool for generating printable playing card templates for custom card
 
 ## Features
 
+- **Google Sheets Integration**: Sign in with Google and load card data directly from your spreadsheets
 - Upload CSV files with card data
 - Upload images for card artwork
-- MTG-style card layout
+- MTG-style card layout with customizable card frame
 - Generate print-ready PDFs with cards arranged on 8.5x11" pages
 - 9 cards per page (3x3 grid) with bleed margins
+- Conditional card styling (Troop = green, Event = red, default = yellow)
 - Fully client-side (no backend required)
 
 ## How to Use
+
+### Option 1: Use Google Sheets
+
+1. Open `index.html` in a web browser
+2. Click "Sign in with Google"
+3. Select a spreadsheet from your Google Drive
+4. Click "Load Selected Sheet"
+5. Upload images referenced in your sheet
+6. Click "Preview Cards" to see how they look
+7. Click "Generate PDF" to create a printable PDF
+
+### Option 2: Upload CSV File
 
 1. Open `index.html` in a web browser
 2. Upload a CSV file with your card data
 3. Upload images referenced in your CSV
 4. Click "Preview Cards" to see how they look
 5. Click "Generate PDF" to create a printable PDF
+
+## Google Sheets Setup
+
+To enable Google Sheets integration, you need to set up a Google Cloud Project:
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select an existing one
+3. Enable the following APIs:
+   - Google Sheets API
+   - Google Drive API
+4. Create credentials:
+   - Go to "APIs & Services" > "Credentials"
+   - Click "Create Credentials" > "API Key"
+   - Copy the API key and replace `YOUR_API_KEY_HERE` in `app.js`
+   - Click "Create Credentials" > "OAuth client ID"
+   - Choose "Web application"
+   - Add your website URL to "Authorized JavaScript origins" (e.g., `https://yourusername.github.io`)
+   - Copy the Client ID and replace `YOUR_CLIENT_ID_HERE.apps.googleusercontent.com` in `app.js`
+5. Deploy your site and test the Google Sign-In functionality
+
+**Note**: The Google Sheets integration will not work when running locally with `file://` protocol. You must deploy to a web server or use the development server (`npm run dev`).
 
 ## CSV Format
 

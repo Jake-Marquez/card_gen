@@ -2,6 +2,14 @@
 let cardData = [];
 let imageMap = {};
 let iconMap = {};
+let accessToken = null;
+
+// Google API Configuration
+// IMPORTANT: Replace this with your actual Google Cloud Project Client ID
+const GOOGLE_CLIENT_ID = '83506289505-c5mhe4t5ig734tav216iqd15bqmtevpo.apps.googleusercontent.com';
+const GOOGLE_API_KEY = 'AIzaSyDq6q2590vojpqy50REynuollRV2Z650d8';
+const DISCOVERY_DOC = 'https://sheets.googleapis.com/$discovery/rest?version=v4';
+const SCOPES = 'https://www.googleapis.com/auth/spreadsheets.readonly https://www.googleapis.com/auth/drive.readonly';
 
 // DOM elements
 const csvUpload = document.getElementById('csv-upload');
@@ -13,6 +21,15 @@ const imageStatus = document.getElementById('image-status');
 const cardPreview = document.getElementById('card-preview');
 const previewSection = document.getElementById('preview-section');
 const printArea = document.getElementById('print-area');
+
+// Google Sheets DOM elements
+const googleSignInBtn = document.getElementById('google-signin-btn');
+const googleSignOutBtn = document.getElementById('google-signout-btn');
+const googleSheetsContainer = document.getElementById('google-sheets-container');
+const sheetsSelect = document.getElementById('sheets-select');
+const loadSheetBtn = document.getElementById('load-sheet-btn');
+const googleStatus = document.getElementById('google-status');
+const userEmail = document.getElementById('user-email');
 
 // Preload icons from icons folder
 async function preloadIcons() {
@@ -30,7 +47,8 @@ async function preloadIcons() {
         'tundra.png',
         'jungle.png',
         'wasteland.png',
-        'chaos.png'
+        'chaos.png',
+        'card_frame1.png'
     ];
 
     const promises = iconNames.map(async (iconName) => {
@@ -67,11 +85,207 @@ preloadIcons().then(() => {
     }
 });
 
+// Google Sheets API Functions
+let tokenClient;
+let gapiInited = false;
+let gisInited = false;
+
+// Initialize Google API
+function gapiLoaded() {
+    gapi.load('client', initializeGapiClient);
+}
+
+async function initializeGapiClient() {
+    await gapi.client.init({
+        apiKey: GOOGLE_API_KEY,
+        discoveryDocs: [DISCOVERY_DOC],
+    });
+    gapiInited = true;
+    maybeEnableButtons();
+}
+
+// Initialize Google Identity Services
+function gisLoaded() {
+    tokenClient = google.accounts.oauth2.initTokenClient({
+        client_id: GOOGLE_CLIENT_ID,
+        scope: SCOPES,
+        callback: '', // defined later
+    });
+    gisInited = true;
+    maybeEnableButtons();
+}
+
+function maybeEnableButtons() {
+    if (gapiInited && gisInited && googleSignInBtn) {
+        googleSignInBtn.disabled = false;
+    }
+}
+
+// Handle Google Sign In
+function handleGoogleSignIn() {
+    tokenClient.callback = async (resp) => {
+        if (resp.error !== undefined) {
+            showStatus(googleStatus, 'error', 'Authentication failed');
+            throw (resp);
+        }
+        accessToken = gapi.client.getToken().access_token;
+
+        // Get user info
+        try {
+            const response = await fetch('https://www.googleapis.com/oauth2/v2/userinfo', {
+                headers: { Authorization: `Bearer ${accessToken}` }
+            });
+            const userInfo = await response.json();
+            userEmail.textContent = userInfo.email;
+        } catch (error) {
+            console.error('Error fetching user info:', error);
+        }
+
+        googleSignInBtn.style.display = 'none';
+        googleSheetsContainer.style.display = 'block';
+        showStatus(googleStatus, 'success', 'Signed in successfully!');
+
+        // Load spreadsheets
+        await loadSpreadsheetsList();
+    };
+
+    if (gapi.client.getToken() === null) {
+        tokenClient.requestAccessToken({ prompt: 'consent' });
+    } else {
+        tokenClient.requestAccessToken({ prompt: '' });
+    }
+}
+
+// Handle Google Sign Out
+function handleGoogleSignOut() {
+    const token = gapi.client.getToken();
+    if (token !== null) {
+        google.accounts.oauth2.revoke(token.access_token);
+        gapi.client.setToken('');
+    }
+    googleSignInBtn.style.display = 'block';
+    googleSheetsContainer.style.display = 'none';
+    sheetsSelect.innerHTML = '<option value="">Select a spreadsheet...</option>';
+    loadSheetBtn.disabled = true;
+    accessToken = null;
+    showStatus(googleStatus, 'success', 'Signed out successfully');
+}
+
+// Load list of spreadsheets
+async function loadSpreadsheetsList() {
+    try {
+        showStatus(googleStatus, 'success', 'Loading spreadsheets...');
+
+        const response = await gapi.client.request({
+            path: 'https://www.googleapis.com/drive/v3/files',
+            params: {
+                q: "mimeType='application/vnd.google-apps.spreadsheet'",
+                orderBy: 'modifiedTime desc',
+                pageSize: 100,
+                fields: 'files(id, name)'
+            }
+        });
+
+        const files = response.result.files;
+        sheetsSelect.innerHTML = '<option value="">Select a spreadsheet...</option>';
+
+        files.forEach(file => {
+            const option = document.createElement('option');
+            option.value = file.id;
+            option.textContent = file.name;
+            sheetsSelect.appendChild(option);
+        });
+
+        showStatus(googleStatus, 'success', `Found ${files.length} spreadsheets`);
+    } catch (error) {
+        console.error('Error loading spreadsheets:', error);
+        showStatus(googleStatus, 'error', 'Failed to load spreadsheets');
+    }
+}
+
+// Load selected spreadsheet data
+async function loadSelectedSheet() {
+    const spreadsheetId = sheetsSelect.value;
+    if (!spreadsheetId) return;
+
+    try {
+        loadSheetBtn.textContent = 'Loading...';
+        loadSheetBtn.disabled = true;
+
+        // Get the spreadsheet to find sheet names
+        const metaResponse = await gapi.client.sheets.spreadsheets.get({
+            spreadsheetId: spreadsheetId,
+        });
+
+        // Use the first sheet
+        const sheetName = metaResponse.result.sheets[0].properties.title;
+
+        // Get the data from the first sheet
+        const response = await gapi.client.sheets.spreadsheets.values.get({
+            spreadsheetId: spreadsheetId,
+            range: `${sheetName}!A:Z`, // Get all columns
+        });
+
+        const rows = response.result.values;
+        if (!rows || rows.length === 0) {
+            showStatus(googleStatus, 'error', 'No data found in spreadsheet');
+            return;
+        }
+
+        // Convert to card data format (assuming first row is headers)
+        const headers = rows[0];
+        cardData = [];
+
+        for (let i = 1; i < rows.length; i++) {
+            const row = rows[i];
+            const card = {};
+            headers.forEach((header, index) => {
+                card[header] = row[index] || '';
+            });
+            // Only include rows with a name
+            if (card.name && card.name.trim() !== '') {
+                cardData.push(card);
+            }
+        }
+
+        console.log('Loaded card data from Google Sheets:', cardData);
+        showStatus(googleStatus, 'success', `Loaded ${cardData.length} cards from sheet`);
+        updateButtonStates();
+
+    } catch (error) {
+        console.error('Error loading sheet data:', error);
+        showStatus(googleStatus, 'error', 'Failed to load sheet data');
+    } finally {
+        loadSheetBtn.textContent = 'Load Selected Sheet';
+        loadSheetBtn.disabled = false;
+    }
+}
+
 // Event listeners
 csvUpload.addEventListener('change', handleCSVUpload);
 imageUpload.addEventListener('change', handleImageUpload);
 generateBtn.addEventListener('click', generatePDF);
 previewBtn.addEventListener('click', showPreview);
+
+// Google Sheets event listeners
+if (googleSignInBtn) {
+    googleSignInBtn.addEventListener('click', handleGoogleSignIn);
+}
+if (googleSignOutBtn) {
+    googleSignOutBtn.addEventListener('click', handleGoogleSignOut);
+}
+if (sheetsSelect) {
+    sheetsSelect.addEventListener('change', () => {
+        loadSheetBtn.disabled = !sheetsSelect.value;
+    });
+}
+if (loadSheetBtn) {
+    loadSheetBtn.addEventListener('click', loadSelectedSheet);
+}
+
+// Initialize Google APIs when loaded
+window.gapiLoaded = gapiLoaded;
+window.gisLoaded = gisLoaded;
 
 // Handle CSV upload
 function handleCSVUpload(event) {
@@ -166,6 +380,22 @@ function createCardElement(card) {
     // Add event class if type starts with "Event"
     if (card.type && card.type.trim().toLowerCase().startsWith('event')) {
         cardDiv.classList.add('card-event');
+    }
+
+    // Add card frame background image if available (layered on top of gradient)
+    const cardFrame = iconMap['card_frame1.png'];
+    if (cardFrame) {
+        // Get the existing gradient from CSS class
+        let gradient = 'linear-gradient(135deg, #f4e4c1 0%, #e8d4a8 100%)'; // default yellow
+        if (card.type && card.type.trim().toLowerCase().startsWith('troop')) {
+            gradient = 'linear-gradient(135deg, #d4f4d4 0%, #b8e8b8 100%)'; // green
+        } else if (card.type && card.type.trim().toLowerCase().startsWith('event')) {
+            gradient = 'linear-gradient(135deg, #f4d4d4 0%, #e8b8b8 100%)'; // red
+        }
+        // Layer the frame on top of the gradient
+        cardDiv.style.backgroundImage = `url(${cardFrame}), ${gradient}`;
+        cardDiv.style.backgroundSize = 'cover, cover';
+        cardDiv.style.backgroundPosition = 'center, center';
     }
 
     // Card header with name, troop cost, and mana cost
