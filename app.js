@@ -90,45 +90,78 @@ let tokenClient;
 let gapiInited = false;
 let gisInited = false;
 
-// Initialize Google API
-function gapiLoaded() {
+// Initialize Google API - exposed globally immediately
+window.gapiLoaded = function() {
+    if (typeof gapi === 'undefined') {
+        console.error('Google API (gapi) failed to load');
+        return;
+    }
     gapi.load('client', initializeGapiClient);
-}
+};
 
 async function initializeGapiClient() {
-    await gapi.client.init({
-        apiKey: GOOGLE_API_KEY,
-        discoveryDocs: [DISCOVERY_DOC],
-    });
-    gapiInited = true;
-    maybeEnableButtons();
+    try {
+        await gapi.client.init({
+            apiKey: GOOGLE_API_KEY,
+            discoveryDocs: [DISCOVERY_DOC],
+        });
+        gapiInited = true;
+        maybeEnableButtons();
+    } catch (error) {
+        console.error('Error initializing Google API client:', error);
+        if (googleSignInBtn) {
+            const textSpan = document.getElementById('google-signin-text');
+            if (textSpan) {
+                textSpan.textContent = 'Google API Error (Check Console)';
+            }
+        }
+    }
 }
 
-// Initialize Google Identity Services
-function gisLoaded() {
-    tokenClient = google.accounts.oauth2.initTokenClient({
-        client_id: GOOGLE_CLIENT_ID,
-        scope: SCOPES,
-        callback: '', // defined later
-    });
-    gisInited = true;
-    maybeEnableButtons();
-}
+// Initialize Google Identity Services - exposed globally immediately
+window.gisLoaded = function() {
+    if (typeof google === 'undefined') {
+        console.error('Google Identity Services (google) failed to load');
+        return;
+    }
+    try {
+        tokenClient = google.accounts.oauth2.initTokenClient({
+            client_id: GOOGLE_CLIENT_ID,
+            scope: SCOPES,
+            callback: '', // defined later
+        });
+        gisInited = true;
+        maybeEnableButtons();
+    } catch (error) {
+        console.error('Error initializing Google Identity Services:', error);
+    }
+};
 
 function maybeEnableButtons() {
     if (gapiInited && gisInited && googleSignInBtn) {
         googleSignInBtn.disabled = false;
+        const textSpan = document.getElementById('google-signin-text');
+        if (textSpan) {
+            textSpan.textContent = 'Sign in with Google';
+        }
     }
 }
 
 // Handle Google Sign In
 function handleGoogleSignIn() {
+    if (!gapiInited || !gisInited) {
+        showStatus(googleStatus, 'error', 'Google API is still loading. Please wait...');
+        return;
+    }
+
     tokenClient.callback = async (resp) => {
         if (resp.error !== undefined) {
             showStatus(googleStatus, 'error', 'Authentication failed');
             throw (resp);
         }
-        accessToken = gapi.client.getToken().access_token;
+
+        const token = gapi.client.getToken();
+        accessToken = token ? token.access_token : null;
 
         // Get user info
         try {
@@ -149,7 +182,8 @@ function handleGoogleSignIn() {
         await loadSpreadsheetsList();
     };
 
-    if (gapi.client.getToken() === null) {
+    const existingToken = gapi.client.getToken();
+    if (existingToken === null || existingToken === undefined) {
         tokenClient.requestAccessToken({ prompt: 'consent' });
     } else {
         tokenClient.requestAccessToken({ prompt: '' });
@@ -282,10 +316,6 @@ if (sheetsSelect) {
 if (loadSheetBtn) {
     loadSheetBtn.addEventListener('click', loadSelectedSheet);
 }
-
-// Initialize Google APIs when loaded
-window.gapiLoaded = gapiLoaded;
-window.gisLoaded = gisLoaded;
 
 // Handle CSV upload
 function handleCSVUpload(event) {
